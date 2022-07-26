@@ -5,11 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prisma-prod":"prisma migrate deploy && prisma db seed",
-    "prisma-test":"dotenv -e .env.test prisma migrate reset --skip--seed",
+    "prisma-prod": "prisma migrate deploy && prisma db seed",
+    "prisma-test": "dotenv -e .env.test prisma migrate reset --skip--seed",
     "build": "tsc && npm run prisma-prod",
     "dev": "nodemon src/index.ts",
-    "dev:test":"dotenv -e .env.test nodemon src/index.ts",
+    "dev:test": "dotenv -e .env.test nodemon src/index.ts",
     "start": "node dist/src/index.js",
     "test": "npm run prisma-test && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i"
   },
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
@@ -26,6 +27,7 @@
     "@types/supertest": "^2.0.11",
     "dotenv-cli": "^5.1.0",
     "eslint": "^7.32.0",
+    "faker": "^6.6.6",
     "jest": "^28.0.3",
     "nodemon": "^2.0.12",
     "prisma": "^3.13.0",
