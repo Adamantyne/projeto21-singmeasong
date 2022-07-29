@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utils/errorUtils.ts</title>
+    <title>Code coverage report for tests/factories/recommendationFactory.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utils</a> errorUtils.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">tests/factories</a> recommendationFactory.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/20</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
-                <span class="quiet">Functions</span>
                 <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -88,15 +88,8 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,59 +101,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">type AppErrorTypes = "conflict" | "not_found" | "unauthorized" | "wrong_schema";
-export interface AppError {
-  type: AppErrorTypes;
-  message: string;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import supertest from "supertest";
+import { Recommendation } from "@prisma/client";
+&nbsp;
+import app from "../../src/app.js";
+&nbsp;
+type PostRecommendationMask = Omit&lt;Recommendation, "id" | "score"&gt;;
+&nbsp;
+export async function <span class="fstat-no" title="function not covered" >postRecommendation(</span>data?: PostRecommendationMask) {
+<span class="cstat-no" title="statement not covered" >  return supertest(app).post("/recommendations").send(data);</span>
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >isAppError(</span>error: object): error is AppError {
-<span class="cstat-no" title="statement not covered" >  return (error as AppError).type !== undefined;</span>
+export async function <span class="fstat-no" title="function not covered" >getAllRecommendations(</span>) {
+<span class="cstat-no" title="statement not covered" >  return supertest(app).get("/recommendations");</span>
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >errorTypeToStatusCode(</span>type: AppErrorTypes) {
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "conflict") <span class="cstat-no" title="statement not covered" >return 409;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "not_found") <span class="cstat-no" title="statement not covered" >return 404;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "unauthorized") <span class="cstat-no" title="statement not covered" >return 401;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "wrong_schema") <span class="cstat-no" title="statement not covered" >return 422;</span></span>
-<span class="cstat-no" title="statement not covered" >  return 400;</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >conflictError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "conflict", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >notFoundError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "not_found", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >unauthorizedError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "unauthorized", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >wrongSchemaError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "wrong_schema", message: message ?? "" };</span>
+export async function <span class="fstat-no" title="function not covered" >postVote(</span>
+  string: "up" | "down",
+  recommendationId: number
+) {
+<span class="cstat-no" title="statement not covered" >  if (string === "up") {</span>
+<span class="cstat-no" title="statement not covered" >    return supertest(app).post(`/recommendations/${recommendationId}/upvote`);</span>
+  }else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if(string === "down"){</span>
+<span class="cstat-no" title="statement not covered" >    return supertest(app).post(`/recommendations/${recommendationId}/downvote`);</span>
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 

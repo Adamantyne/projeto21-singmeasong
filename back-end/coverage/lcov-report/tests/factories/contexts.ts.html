@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utils/errorUtils.ts</title>
+    <title>Code coverage report for tests/factories/contexts.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utils</a> errorUtils.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">tests/factories</a> contexts.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -95,8 +95,15 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,60 +114,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">type AppErrorTypes = "conflict" | "not_found" | "unauthorized" | "wrong_schema";
-export interface AppError {
-  type: AppErrorTypes;
-  message: string;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { faker } from "@faker-js/faker";
+&nbsp;
+import {
+  postRecommendation,
+  getAllRecommendations,
+} from "./recommendationFactory.js";
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >validReccomendationData(</span>) {
+<span class="cstat-no" title="statement not covered" >  return {</span>
+    name: faker.internet.userName(),
+    youtubeLink: `www.youtube.com/${faker.image.animals()}`,
+  };
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >isAppError(</span>error: object): error is AppError {
-<span class="cstat-no" title="statement not covered" >  return (error as AppError).type !== undefined;</span>
+export function <span class="fstat-no" title="function not covered" >fakeReturnReccomendationsData(</span>) {
+<span class="cstat-no" title="statement not covered" >  return [</span>
+    {
+      id: 1,
+      name: faker.internet.userName(),
+      youtubeLink: `www.youtube.com/${faker.image.animals()}`,
+      score: 3,
+    },
+  ];
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >errorTypeToStatusCode(</span>type: AppErrorTypes) {
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "conflict") <span class="cstat-no" title="statement not covered" >return 409;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "not_found") <span class="cstat-no" title="statement not covered" >return 404;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "unauthorized") <span class="cstat-no" title="statement not covered" >return 401;</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "wrong_schema") <span class="cstat-no" title="statement not covered" >return 422;</span></span>
-<span class="cstat-no" title="statement not covered" >  return 400;</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >conflictError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "conflict", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >notFoundError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "not_found", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >unauthorizedError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "unauthorized", message: message ?? "" };</span>
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >wrongSchemaError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "wrong_schema", message: message ?? "" };</span>
+export async function <span class="fstat-no" title="function not covered" >validReccomendationId(</span>) {
+  const recommendationData = <span class="cstat-no" title="statement not covered" >validReccomendationData();</span>
+<span class="cstat-no" title="statement not covered" >  await postRecommendation(recommendationData);</span>
+  const response = <span class="cstat-no" title="statement not covered" >await getAllRecommendations();</span>
+  const validId: number = <span class="cstat-no" title="statement not covered" >response.body[0].id;</span>
+<span class="cstat-no" title="statement not covered" >  return validId;</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
