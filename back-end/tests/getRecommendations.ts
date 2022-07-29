@@ -70,6 +70,8 @@ async function getValidRandomRecommendationTest() {
       const amount = 5;
       await createRecomendations(amount);
       const response = await getRandomRecommendation();
+      const recommendation = response.body;
+      expect(isRecommendation(recommendation)).toBe(true);
       expect(response.statusCode).toBe(200);
     });
   });
