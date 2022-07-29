@@ -1,4 +1,7 @@
 dist
 node_modules
+coverage/
+/coverage.data
+/coverage/
 .env*
 !.env.example
