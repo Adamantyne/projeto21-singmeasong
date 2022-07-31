@@ -3,18 +3,20 @@ import {
   getRecommendationById,
   getTopRecommendations,
   getRandomRecommendation,
-} from "./factories/recommendationFactory.js";
+} from "../factories/recommendationFactory.js";
 import {
-  createRecomendations,
-  validReccomendationId,
+  createRecommendations,
+  validRecommendationId,
   isRecommendation,
-  createRecomendationsAndUpvote,
-} from "./factories/contexts.js";
+  createRecommendationsAndUpvote,
+  isAllRecommendation,
+  checkTop,
+} from "../factories/contexts.js";
 
 async function getLastTenRecommendationsTests() {
   return describe("get all recommendations", () => {
     it("trying to get recommendations", async () => {
-      await createRecomendations(20);
+      await createRecommendations(20);
       const response = await getLastTenRecommendations();
       const recommendations = response.body;
       expect(response.statusCode).toBe(200);
@@ -30,7 +32,7 @@ async function getLastTenRecommendationsTests() {
 async function getValidRecommendationByIdTests() {
   return describe("get valid recommendation by id", () => {
     it("trying to get a valid recommendation data", async () => {
-      const validId = await validReccomendationId();
+      const validId = await validRecommendationId();
       const response = await getRecommendationById(validId);
       const recommendation = response.body;
       expect(isRecommendation(recommendation)).toBe(true);
@@ -68,7 +70,7 @@ async function getValidRandomRecommendationTest() {
   return describe("get valid Random recommendation", () => {
     it("trying to get a valid recommendation", async () => {
       const amount = 5;
-      await createRecomendations(amount);
+      await createRecommendations(amount);
       const response = await getRandomRecommendation();
       const recommendation = response.body;
       expect(isRecommendation(recommendation)).toBe(true);
@@ -91,15 +93,16 @@ async function getValidTopRecommendationsTest() {
   return describe("get valid top recommendations", () => {
     it("trying to get top recommendation", async () => {
       const amount = 5;
-      await createRecomendationsAndUpvote(amount);
+      await createRecommendationsAndUpvote(amount);
       const response = await getTopRecommendations(amount);
       const recommendations = response.body;
       expect(response.statusCode).toBe(200);
       expect(Array.isArray(recommendations)).toBe(true);
       if (recommendations.length > 0) {
-        expect(isRecommendation(recommendations[0])).toBe(true);
+        expect(isAllRecommendation(recommendations)).toBe(true);
         expect(recommendations[0].score).toBe(amount);
         expect(recommendations.length <= amount).toBe(true);
+        expect(checkTop(recommendations)).toBe(true);
       }
     });
   });

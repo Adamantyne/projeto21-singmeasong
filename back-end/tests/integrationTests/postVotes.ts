@@ -1,10 +1,10 @@
-import { postVote } from "./factories/recommendationFactory.js";
-import { validReccomendationId } from "./factories/contexts.js";
+import { postVote } from "../factories/recommendationFactory.js";
+import { validRecommendationId } from "../factories/contexts.js";
 
 async function postValidVotesTests() {
   return describe("valid votes route", () => {
     it("trying to post upvote/downvote to a existing recommendation ", async () => {
-      const validId = await validReccomendationId();
+      const validId = await validRecommendationId();
       const upvoteResponse = await postVote("up", validId);
       const downvoteResponse = await postVote("down", validId);
       expect(upvoteResponse.statusCode).toBe(200);

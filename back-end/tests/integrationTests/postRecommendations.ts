@@ -1,5 +1,5 @@
-import { postRecommendation } from "./factories/recommendationFactory.js";
-import { validReccomendationData } from "./factories/contexts.js";
+import { postRecommendation } from "../factories/recommendationFactory.js";
+import { validRecommendationData } from "../factories/contexts.js";
 
 async function invalidPostReccomendationsTests() {
   return describe("invalid post recommendations route", () => {
@@ -9,7 +9,7 @@ async function invalidPostReccomendationsTests() {
     });
 
     it("trying to post a already existing recommendation name ", async () => {
-      const recommendation = validReccomendationData();
+      const recommendation = validRecommendationData();
       await postRecommendation(recommendation);
       const response = await postRecommendation(recommendation);
       expect(response.statusCode).toBe(409);
@@ -20,7 +20,7 @@ async function invalidPostReccomendationsTests() {
 async function validPostReccomendationsTests() {
   return describe("valid post recommendations route", () => {
     it("trying to post a valid Recommendation ", async () => {
-      const recommendation = validReccomendationData();
+      const recommendation = validRecommendationData();
       const response = await postRecommendation(recommendation);
       expect(response.statusCode).toBe(201);
     });

@@ -2,9 +2,9 @@ import supertest from "supertest";
 
 import { prisma } from "../src/database.js";
 import app from "../src/app.js";
-import postReccomendationsTests from "./postRecommendations.js";
-import getRecommendationsTest from "./getRecommendations.js";
-import postVotesTests from "./postVotes.js";
+import postReccomendationsTests from "./integrationTests/postRecommendations.js";
+import getRecommendationsTest from "./integrationTests/getRecommendations.js";
+import postVotesTests from "./integrationTests/postVotes.js";
 
 beforeEach(async () => {
   await prisma.$executeRaw`TRUNCATE TABLE recommendations;`;
