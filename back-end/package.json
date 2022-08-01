@@ -9,7 +9,7 @@
     "prisma-test": "dotenv -e .env.test prisma migrate reset --skip--seed",
     "build": "tsc && npm run prisma-prod",
     "dev": "nodemon src/server.ts",
-    "dev:test": "dotenv -e .env.test nodemon src/index.ts",
+    "dev:test": "npm run prisma-test && dotenv -e .env.test prisma migrate dev && dotenv -e .env.test nodemon src/server.ts",
     "start": "node dist/src/index.js",
     "test": "npm run prisma-test && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i -- app.test.ts",
     "test:unit":"NODE_OPTIONS=--experimental-vm-modules jest -i --coverage --collectCoverageFrom=src/services/recommendationsService.ts  -- unit.test.ts"
